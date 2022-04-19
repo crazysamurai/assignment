@@ -1,0 +1,36 @@
+<div class="wrapper" fxLayout = "column"  fxLayoutGap="2%" fxLayoutAlign="center center" style="height:100vh">
+    <mat-card class="login-card">
+        <mat-card-title>
+            Login
+        </mat-card-title>
+
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+            <div fxLayout="column">
+                <div class="container" fxFlex>
+                    <mat-form-field >
+                        <mat-label>Email</mat-label>
+                        <input formControlName="email" matInput placeholder="Enter your registered Email">
+                    </mat-form-field>
+                    <br>
+                    <span *ngIf="emailValidator && emailValidator.invalid && emailValidator.touched" > Please enter a valid email </span>
+                </div>
+                <div class="container" fxFlex>
+                    <mat-form-field >
+                        <mat-label>Password</mat-label>
+                        <input formControlName="password" type="password" matInput placeholder="Enter your Password">
+                    </mat-form-field>
+                    <br>
+                    <span *ngIf="passwordValidator && passwordValidator.invalid && passwordValidator.touched" >Please enter a password</span>
+                </div>
+            </div>
+            <mat-card-actions>
+                <button [disabled]="loginForm.invalid" mat-raised-button color="primary">Login</button>
+                <div style="margin-top:1em">
+                    <p>Don't have an account?<a routerLink="/register-form" routerLinkActive="active" style="text-decoration: none; color:#ffa4c9"> Register! </a></p>
+                  </div>
+            </mat-card-actions>
+        </form>
+
+    </mat-card>
+</div>
+
