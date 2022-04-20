@@ -1,0 +1,11 @@
+<div *ngIf="loggedin()">
+  <button mat-raised-button color="primary" (click)="onLogout()">Logout</button>
+
+  <a routerLink="/datatable" routerLinkActive="active">
+    <button mat-raised-button color="primary">Dummy Table</button>
+  </a>
+
+  <a routerLink="/usertable" routerLinkActive="active">
+    <button mat-raised-button color="primary">User Table</button>
+  </a>
+</div>

@@ -20,7 +20,8 @@
     "module": "es2020",
     "noPropertyAccessFromIndexSignature": false,
     "lib": ["es2020", "dom"],
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "typeRoots": ["node_modules/@types", "src/alertifytype.d.ts"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -123,11 +123,12 @@
           </div>
         </div>
 
-        <!-- <div fxLayout="column">
+        <div fxLayout="column">
           <div class="container" fxFlex>
             <mat-form-field>
               <mat-label>College</mat-label>
-              <mat-select>
+              <mat-select formControlName="college">
+                <mat-option value="none">None</mat-option>
                 <mat-option value="a">College A</mat-option>
                 <mat-option value="b">College B</mat-option>
                 <mat-option value="c">College C</mat-option>
@@ -138,14 +139,17 @@
           <div class="container">
             <div class="checkbox-div">
               <h3>Select your strengths</h3>
-              <mat-checkbox>Strength A</mat-checkbox>
-              <mat-checkbox>Strength B</mat-checkbox>
-              <mat-checkbox>Strength C</mat-checkbox>
+              <mat-checkbox formControlName="strength_A"
+                >Strength A</mat-checkbox
+              >
+              <mat-checkbox formControlName="strength_B"
+                >Strength B</mat-checkbox
+              >
             </div>
 
             <div class="checkbox-div">
               <h3>Select gender</h3>
-              <mat-radio-group>
+              <mat-radio-group formControlName="gender">
                 <mat-radio-button value="male">Male</mat-radio-button>
                 <mat-radio-button value="female">Female</mat-radio-button>
                 <mat-radio-button value="other">Other</mat-radio-button>
@@ -155,7 +159,12 @@
             <div>
               <mat-form-field>
                 <mat-label>Choose your DOB</mat-label>
-                <input matInput [matDatepicker]="picker" />
+                <input
+                  matInput
+                  [max]="today"
+                  [matDatepicker]="picker"
+                  formControlName="dob"
+                />
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle
                   matSuffix
@@ -168,11 +177,16 @@
             <div>
               <mat-form-field>
                 <mat-label>Tell us about yourself</mat-label>
-                <textarea matInput placeholder="I am..."></textarea>
+                <textarea
+                  formControlName="about"
+                  matInput
+                  placeholder="I am..."
+                ></textarea>
               </mat-form-field>
             </div>
           </div>
-        </div> -->
+        </div>
+
         <mat-card-actions>
           <button
             mat-raised-button

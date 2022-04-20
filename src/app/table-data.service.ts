@@ -13,11 +13,13 @@ export interface todo {
  * post service.
  */
 @Injectable()
-
 export class PostService {
   constructor(private http: HttpClient) {}
   url = 'https://jsonplaceholder.typicode.com/todos/';
   getPostData(): Observable<todo[]> {
     return this.http.get<todo[]>(this.url);
+  }
+  deleteRow(id: any) {
+    return this.http.delete(`${this.url}${id}`);
   }
 }

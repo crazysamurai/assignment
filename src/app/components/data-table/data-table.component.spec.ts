@@ -3,7 +3,6 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-
 import { DataTableComponent } from './data-table.component';
 
 describe('DataTableComponent', () => {
@@ -12,13 +11,13 @@ describe('DataTableComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ DataTableComponent ],
+      declarations: [DataTableComponent],
       imports: [
         NoopAnimationsModule,
         MatPaginatorModule,
         MatSortModule,
         MatTableModule,
-      ]
+      ],
     }).compileComponents();
   }));
 

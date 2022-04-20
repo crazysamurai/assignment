@@ -8,12 +8,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './core/material.module';
 import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { DialogComponent } from './components/dialog/dialog.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostService } from './table-data.service';
 import { dataTable } from './components/data-table/data-table.component';
 import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
+import { UserTableService } from './services/user-table.service';
+import { UserTableComponent } from './components/user-table/user-table.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,12 @@ import { UserService } from './services/user.service';
     LoginFormComponent,
     RegisterComponent,
     DashboardComponent,
-    DialogComponent,
     dataTable,
+    UserTableComponent,
   ],
-  entryComponents: [DialogComponent],
+  entryComponents: [],
   imports: [
+    FormsModule,
     BrowserModule,
     MaterialModule,
     AppRoutingModule,
@@ -34,7 +37,7 @@ import { UserService } from './services/user.service';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [PostService, UserService],
+  providers: [PostService, UserService, AuthService, UserTableService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
