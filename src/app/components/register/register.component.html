@@ -6,19 +6,21 @@
 >
   <mat-card class="login-card">
     <mat-card-title> Register </mat-card-title>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <form [formGroup]="registerForm" (ngSubmit)="PostData(registerForm)">
       <div class="form-wrapper">
         <div fxLayout="column">
           <div class="container" fxFlex>
             <mat-form-field>
               <mat-label>First Name</mat-label>
               <input
+                type="text"
                 formControlName="firstName"
                 matInput
                 placeholder="Enter your First Name"
               />
             </mat-form-field>
-            <br>
+            <br />
             <span *ngIf="f['firstName'].touched && f['firstName'].invalid">
               Please enter a valid first name
             </span>
@@ -26,12 +28,13 @@
             <mat-form-field>
               <mat-label>Last Name</mat-label>
               <input
-              formControlName="lastName"
+                type="text"
+                formControlName="lastName"
                 matInput
                 placeholder="Enter your Last Name"
               />
             </mat-form-field>
-            <br>
+            <br />
             <span *ngIf="f['lastName'].touched && f['lastName'].invalid">
               Please enter a valid last name
             </span>
@@ -39,20 +42,15 @@
             <mat-form-field>
               <mat-label>Email</mat-label>
               <input
-              formControlName="email"
+                type="text"
+                formControlName="email"
                 type="email"
                 matInput
                 placeholder="Enter your Email"
               />
             </mat-form-field>
-            <br>
-            <span
-              *ngIf="
-                emailValidator &&
-                emailValidator.invalid &&
-                emailValidator.touched
-              "
-            >
+            <br />
+            <span *ngIf="email && email.invalid && email.touched">
               Please enter a valid email
             </span>
 
@@ -115,12 +113,17 @@
 
             <mat-form-field>
               <mat-label>Website</mat-label>
-              <input type="url" matInput placeholder="Enter website url" />
+              <input
+                type="url"
+                matInput
+                placeholder="Enter website url"
+                formControlName="website"
+              />
             </mat-form-field>
           </div>
         </div>
 
-        <div fxLayout="column">
+        <!-- <div fxLayout="column">
           <div class="container" fxFlex>
             <mat-form-field>
               <mat-label>College</mat-label>
@@ -135,14 +138,14 @@
           <div class="container">
             <div class="checkbox-div">
               <h3>Select your strengths</h3>
-              <mat-checkbox >Strength A</mat-checkbox>
-              <mat-checkbox >Strength B</mat-checkbox>
-              <mat-checkbox >Strength C</mat-checkbox>
+              <mat-checkbox>Strength A</mat-checkbox>
+              <mat-checkbox>Strength B</mat-checkbox>
+              <mat-checkbox>Strength C</mat-checkbox>
             </div>
 
             <div class="checkbox-div">
               <h3>Select gender</h3>
-              <mat-radio-group >
+              <mat-radio-group>
                 <mat-radio-button value="male">Male</mat-radio-button>
                 <mat-radio-button value="female">Female</mat-radio-button>
                 <mat-radio-button value="other">Other</mat-radio-button>
@@ -152,7 +155,7 @@
             <div>
               <mat-form-field>
                 <mat-label>Choose your DOB</mat-label>
-                <input matInput [matDatepicker]="picker"/>
+                <input matInput [matDatepicker]="picker" />
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle
                   matSuffix
@@ -169,23 +172,29 @@
               </mat-form-field>
             </div>
           </div>
-        </div>
+        </div> -->
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            value="Post Data"
+          >
+            Register
+          </button>
+          <div style="margin-top: 1em">
+            <p>
+              Already have an account?<a
+                routerLink="/"
+                routerLinkActive="active"
+                style="text-decoration: none; color: #ffa4c9"
+              >
+                Login!
+              </a>
+            </p>
+          </div>
+        </mat-card-actions>
       </div>
     </form>
-
-    <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Register</button>
-      <div style="margin-top: 1em">
-        <p>
-          Already have an account?<a
-            routerLink="/"
-            routerLinkActive="active"
-            style="text-decoration: none; color: #ffa4c9"
-          >
-            Login!
-          </a>
-        </p>
-      </div>
-    </mat-card-actions>
   </mat-card>
 </div>

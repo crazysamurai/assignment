@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PostService } from './table-data.service';
 import { dataTable } from './components/data-table/data-table.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { dataTable } from './components/data-table/data-table.component';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [PostService],
+  providers: [PostService, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

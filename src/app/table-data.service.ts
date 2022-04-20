@@ -13,12 +13,7 @@ export interface todo {
  * post service.
  */
 @Injectable()
-// export class PostService {
-//   constructor(private http: HttpClient) {}
-//   url = 'https://jsonplaceholder.typicode.com/todos';
-//   getPostData() {
-//     return this.http.get(this.url);
-//   }
+
 export class PostService {
   constructor(private http: HttpClient) {}
   url = 'https://jsonplaceholder.typicode.com/todos/';
