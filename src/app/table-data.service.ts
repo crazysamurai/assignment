@@ -15,7 +15,9 @@ export interface todo {
 @Injectable()
 export class PostService {
   constructor(private http: HttpClient) {}
-  url = 'https://jsonplaceholder.typicode.com/todos/';
+  // url = 'https://jsonplaceholder.typicode.com/todos/';
+  url = 'http://localhost:3000/todos/';
+
   getPostData(): Observable<todo[]> {
     return this.http.get<todo[]>(this.url);
   }

@@ -10,4 +10,5 @@ export interface User {
   gender: string;
   dob: Date;
   about: string;
+  image: any;
 }

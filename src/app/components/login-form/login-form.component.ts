@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import * as alertify from 'alertifyjs';
 
 @Component({
   selector: 'app-login-form',
@@ -20,11 +21,10 @@ export class LoginFormComponent implements OnInit {
     const token = this.authService.authUser(this.loginForm.value);
     if (token) {
       localStorage.setItem('token', token.userName);
-
-      console.log('successful');
+      alertify.success('Login Successful');
       this.router.navigate(['/dashboard']);
     } else {
-      console.log('unsuccessful');
+      alertify.error('Failed to login!');
     }
   }
 

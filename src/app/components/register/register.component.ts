@@ -4,7 +4,6 @@ import {
   FormControl,
   Validators,
   FormBuilder,
-  NgForm,
 } from '@angular/forms';
 import { ConfirmedValidator } from './confirmed.validator';
 import { UserService } from 'src/app/services/user.service';
@@ -21,6 +20,10 @@ export class RegisterComponent {
   user: User;
   registerForm: FormGroup;
   today = new Date();
+  url: string =
+    'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1650470203~exp=1650470803~hmac=49af70e25ab74f50bc4943f3711f9b99ab7f9266d34dc3083040cc30830c3c2c&w=826';
+
+  imageBase64: any;
 
   constructor(
     private FB: FormBuilder,
@@ -41,6 +44,7 @@ export class RegisterComponent {
         gender: ['', Validators.required],
         dob: ['', Validators.required],
         about: [''],
+        image: [''],
       },
       {
         validator: ConfirmedValidator('password', 'confirmPassword'),
@@ -50,14 +54,13 @@ export class RegisterComponent {
 
   PostData(registerForm: any) {
     console.log(this.registerForm.value);
+    console.log(this.imageBase64);
     if (this.registerForm.valid) {
       this.userService.addUser(this.userData());
       alertify.success('Registeration Successful!');
-      console.log('successful');
       this.router.navigate(['/dashboard']);
     } else {
       alertify.error('Something went wrong! Please try again.');
-      console.log('unsuccessful');
     }
   }
 
@@ -74,11 +77,21 @@ export class RegisterComponent {
       gender: this.gender.value,
       dob: this.dob.value,
       about: this.about.value,
+      image: this.imageBase64,
     });
   }
 
-  get f() {
-    return this.registerForm.controls;
+  selectFile(event) {
+    if (event.target.files) {
+      let reader = new FileReader();
+      let file = reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+      };
+      reader.onloadend = function () {
+        console.log('Encoded Base 64 File String:', reader.result);
+      };
+    }
   }
 
   //getter methods
@@ -99,6 +112,9 @@ export class RegisterComponent {
   }
   get confirmPassword() {
     return this.registerForm.get('confirmPassword') as FormControl;
+  }
+  get f() {
+    return this.registerForm.controls;
   }
   get website() {
     return this.registerForm.get('website') as FormControl;
@@ -127,6 +143,10 @@ export class RegisterComponent {
   get about() {
     return this.registerForm.get('about') as FormControl;
   }
+
+  // get image() {
+  //   return this.registerForm.get('image') as FormControl;
+  // }
 
   ngOnInit(): void {}
 }

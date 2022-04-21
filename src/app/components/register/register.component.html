@@ -184,6 +184,21 @@
                 ></textarea>
               </mat-form-field>
             </div>
+
+            <!-- image input -->
+            <div>
+              <mat-card class="example-card">
+                <mat-card-subtitle>Your profile picture</mat-card-subtitle>
+                <img mat-card-image [src]="url" alt="profile picture" />
+                <mat-card-actions>
+                  <input
+                    formControlName="image"
+                    type="file"
+                    (change)="selectFile($event)"
+                  />
+                </mat-card-actions>
+              </mat-card>
+            </div>
           </div>
         </div>
 
