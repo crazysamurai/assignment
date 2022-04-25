@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  demoUrl: 'http://localhost:3000/todos',
+  avatar:
+    'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1650470203~exp=1650470803~hmac=49af70e25ab74f50bc4943f3711f9b99ab7f9266d34dc3083040cc30830c3c2c&w=826',
 };
 
 /*

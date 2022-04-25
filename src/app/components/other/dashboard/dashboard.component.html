@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <mat-card class="dash-card">
+    <div class="dash-card" *ngIf="loggedin()">
+      <!-- <mat-card-title>Welcome {{username}} </mat-card-title> -->
+      <div>
+        <a routerLink="/usertable" routerLinkActive="active">
+          <button mat-raised-button color="primary">User Table</button>
+        </a>
+      </div>
+      <div>
+        <a routerLink="/datatable" routerLinkActive="active">
+          <button mat-raised-button color="primary">Dummy Table</button>
+        </a>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" (click)="onLogout()">
+          Logout
+        </button>
+      </div>
+    </div>
+    <div *ngIf="!loggedin()" class="dash-card">
+      <mat-card-title>Please Login First </mat-card-title>
+      <a routerLink="/" routerLinkActive="active">
+        <button mat-raised-button color="primary">Login</button>
+      </a>
+    </div>
+  </mat-card>
+</div>

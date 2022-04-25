@@ -3,19 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginFormComponent } from './components/login-form/login-form.component';
+import { LoginFormComponent } from './components/main/login-form/login-form.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './core/material.module';
-import { RegisterComponent } from './components/register/register.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RegisterComponent } from './components/main/register/register.component';
+import { DashboardComponent } from './components/other/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PostService } from './table-data.service';
-import { dataTable } from './components/data-table/data-table.component';
-import { UserService } from './services/user.service';
-import { AuthService } from './services/auth.service';
-import { UserTableService } from './services/user-table.service';
-import { UserTableComponent } from './components/user-table/user-table.component';
+import { dataTable } from './components/other/data-table/data-table.component';
+import { MainService } from './services/main.service';
+import { UserTableComponent } from './components/other/user-table/user-table.component';
+import { DialogComponent } from './components/other/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +23,9 @@ import { UserTableComponent } from './components/user-table/user-table.component
     DashboardComponent,
     dataTable,
     UserTableComponent,
+    DialogComponent,
   ],
-  entryComponents: [],
+  entryComponents: [DialogComponent],
   imports: [
     FormsModule,
     BrowserModule,
@@ -37,7 +36,7 @@ import { UserTableComponent } from './components/user-table/user-table.component
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [PostService, UserService, AuthService, UserTableService],
+  providers: [MainService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

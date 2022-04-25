@@ -1,0 +1,10 @@
+<div class="container">
+  <h1 mat-dialog-title>Are you sure?</h1>
+  <div mat-dialog-content>
+    Selecting YES will permanantly delete the record.
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="false">No</button>
+    <button mat-button color="warn" [mat-dialog-close]="true">Yes</button>
+  </div>
+</div>
